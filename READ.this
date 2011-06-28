@@ -1,0 +1,1 @@
+This project is a quick-hack library for sorting an input set of glyphs (in this case, it was built for Chinese) and displaying them in a vector image. The glyphs are sorted by "alphabetic" pronunciation, and the prominence of each reflects its surveyed frequency in everyday use.
