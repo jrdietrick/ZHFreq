@@ -1,10 +1,17 @@
 CC=g++
 CFLAGS=-I.
-DEPS = ZiNode.h
-OBJ = ZHFreq.o ZiNode.o 
 
-%.o: %.c $(DEPS)
+DEP=ZiNode.h
+
+OBJDIR=obj
+_OBJ=ZHFreq.o ZiNode.o
+OBJ=$(patsubst %,$(OBJDIR)/%,$(_OBJ))
+
+$(OBJDIR)/%.o: %.cpp $(DEP)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-ZHFreq: $(OBJ)
+$(OBJDIR)/ZHFreq: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
+
+clean:
+	rm -f $(OBJDIR)/*.o $(OBJDIR)/ZHFreq *~
